@@ -3,9 +3,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-
-
-const colors = ['#ECBAA8', '#CC1426', '#56223D', '#EF60A3', '#000000'];
+const colors = ['#ECBAA8', '#CC1426', '#56223D', '#EF60A3'];
 
 const StyledUl = styled.ul`
   list-style-type: none;
@@ -19,6 +17,9 @@ const StyledLi = styled.li`
   background-color: ${props => props.color || 'white'};
   padding: 10px;
   border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
 `;
 
 const Button = styled.button`
@@ -29,12 +30,15 @@ const Button = styled.button`
   border-radius: 3px;
   display: flex;
   justify-content: space-between;
+  background-color: white;
+  font-family: Euclid Circular B;
 `;
 
 const ButtonContainer = styled.div`
 justify-content: right;
 align-items: right;
 display: flex;
+
 column-gap: 5px;
 `;
 
@@ -58,10 +62,10 @@ function ListItems({ tasks, handleEdit, handleDelete, editingIndex, handleUpdate
         {editingIndex === index ? (
           <>
             <input type="text" value={editedTask} onChange={handleChange} />
-            <div>
+            <ButtonContainer>
               <Button onClick={() => handleSave(index)}>Save</Button>
               <Button onClick={() => handleDelete(index)}>Delete</Button>
-            </div>
+            </ButtonContainer>
           </>
         ) : (
           <>

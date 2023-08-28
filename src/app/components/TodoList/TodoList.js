@@ -1,10 +1,19 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import InputForm from '../InputForm/InputForm';
-import ListItems from '../ListItems/ListItems';
+import React, { useState } from "react";
+import InputForm from "../InputForm/InputForm";
+import ListItems from "../ListItems/ListItems";
+import styled from "styled-components";
 
-
+const MainBody = styled.div`
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Euclid Circular B;
+  flex-direction: column;
+`;
 
 function TodoList() {
   const [tasks, setTasks] = useState([]);
@@ -24,13 +33,15 @@ function TodoList() {
   };
 
   const handleUpdate = (index, updatedTask) => {
-    const updatedTasks = tasks.map((task, i) => (i === index ? updatedTask : task));
+    const updatedTasks = tasks.map((task, i) =>
+      i === index ? updatedTask : task
+    );
     setTasks(updatedTasks);
     setEditingIndex(-1);
   };
 
   return (
-    <div>
+    <MainBody>
       <h1>To-Do List</h1>
       <InputForm addTask={addTask} />
       <ListItems
@@ -40,7 +51,7 @@ function TodoList() {
         editingIndex={editingIndex}
         handleUpdate={handleUpdate}
       />
-    </div>
+    </MainBody>
   );
 }
 
