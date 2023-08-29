@@ -15,6 +15,7 @@ const MainBody = styled.div`
   flex-direction: column;
 `;
 
+
 function TodoList() {
   const [tasks, setTasks] = useState([]);
   const [editingIndex, setEditingIndex] = useState(-1);
@@ -39,7 +40,7 @@ function TodoList() {
     setTasks(updatedTasks);
     setEditingIndex(-1);
   };
-
+ 
   return (
     <MainBody>
       <h1>To-Do List</h1>

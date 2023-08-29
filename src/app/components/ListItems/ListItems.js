@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import { useReducer } from 'react';
 import styled from 'styled-components';
 
 const colors = ['#ECBAA8', '#CC1426', '#56223D', '#EF60A3'];
@@ -42,9 +43,20 @@ display: flex;
 column-gap: 5px;
 `;
 
+const TaskText = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px; 
+  `;
+
 function ListItems({ tasks, handleEdit, handleDelete, editingIndex, handleUpdate }) {
 
   const [editedTask, setEditedTask] = useState('');
+  const [checked, setChecked] = useReducer(
+    (checked) => !checked, 
+    false
+  )
 
   const handleChange = event => {
     setEditedTask(event.target.value);
@@ -61,6 +73,7 @@ function ListItems({ tasks, handleEdit, handleDelete, editingIndex, handleUpdate
       <StyledLi key={index} color={colors[index % colors.length]}>
         {editingIndex === index ? (
           <>
+          
             <input type="text" value={editedTask} onChange={handleChange} />
             <ButtonContainer>
               <Button onClick={() => handleSave(index)}>Save</Button>
@@ -69,7 +82,7 @@ function ListItems({ tasks, handleEdit, handleDelete, editingIndex, handleUpdate
           </>
         ) : (
           <>
-            {task}
+           <TaskText>{task}</TaskText>
             <ButtonContainer>
               <Button onClick={() => handleEdit(index)}>Edit</Button>
               <Button onClick={() => handleDelete(index)}>Delete</Button>
