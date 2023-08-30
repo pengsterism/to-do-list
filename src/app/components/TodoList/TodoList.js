@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import InputForm from "../InputForm/InputForm";
 import ListItems from "../ListItems/ListItems";
 import styled from "styled-components";
@@ -17,8 +18,15 @@ const MainBody = styled.div`
 
 
 function TodoList() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem('tasks');
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
   const [editingIndex, setEditingIndex] = useState(-1);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = (task) => {
     setTasks([...tasks, task]);
