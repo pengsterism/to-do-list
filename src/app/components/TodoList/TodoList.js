@@ -41,14 +41,18 @@ function TodoList() {
   };
 
   useEffect(() => {
-    const savedTasks = localStorage.getItem('tasks');
-    if (savedTasks) {
-      setTasks(JSON.parse(savedTasks));
+    if (typeof window !== 'undefined') {
+      const savedTasks = localStorage.getItem('tasks');
+      if (savedTasks) {
+        setTasks(JSON.parse(savedTasks));
+      }
     }
   }, []);
-
+  
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
   }, [tasks]);
 
   return (
