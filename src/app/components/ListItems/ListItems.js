@@ -31,7 +31,7 @@ const Button = styled.button`
   display: flex;
   justify-content: space-between;
   background-color: white;
-  font-family: Euclid Circular B;
+  font-family: Euclid Circular B, sans-serif;
 `;
 
 const ButtonContainer = styled.div`

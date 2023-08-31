@@ -11,7 +11,7 @@ const MainBody = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Euclid Circular B;
+  font-family: Euclid Circular B, sans-serif;
   flex-direction: column;
 `;
 
