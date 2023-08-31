@@ -1,6 +1,5 @@
 "use client";
 
-
 import React, { useState, useEffect } from "react";
 import InputForm from "../InputForm/InputForm";
 import ListItems from "../ListItems/ListItems";
@@ -15,7 +14,6 @@ const MainBody = styled.div`
   font-family: Euclid Circular B;
   flex-direction: column;
 `;
-
 
 function TodoList() {
   const [tasks, setTasks] = useState(() => {
