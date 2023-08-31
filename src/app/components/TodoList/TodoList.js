@@ -16,15 +16,8 @@ const MainBody = styled.div`
 `;
 
 function TodoList() {
-  const [tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem('tasks');
-    return savedTasks ? JSON.parse(savedTasks) : [];
-  });
+  const [tasks, setTasks] = useState([]);
   const [editingIndex, setEditingIndex] = useState(-1);
-
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
 
   const addTask = (task) => {
     setTasks([...tasks, task]);
@@ -46,7 +39,18 @@ function TodoList() {
     setTasks(updatedTasks);
     setEditingIndex(-1);
   };
- 
+
+  useEffect(() => {
+    const savedTasks = localStorage.getItem('tasks');
+    if (savedTasks) {
+      setTasks(JSON.parse(savedTasks));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
     <MainBody>
       <h1>To-Do List</h1>

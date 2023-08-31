@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from 'react';
-import { useReducer } from 'react';
 import styled from 'styled-components';
 
 const colors = ['#ECBAA8', '#CC1426', '#56223D', '#EF60A3'];
@@ -53,10 +52,6 @@ const TaskText = styled.div`
 function ListItems({ tasks, handleEdit, handleDelete, editingIndex, handleUpdate }) {
 
   const [editedTask, setEditedTask] = useState('');
-  const [checked, setChecked] = useReducer(
-    (checked) => !checked, 
-    false
-  )
 
   const handleChange = event => {
     setEditedTask(event.target.value);
