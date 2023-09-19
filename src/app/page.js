@@ -17,8 +17,8 @@ function Home() {
   return (
     <Homepage>
       <h1>Zahira's projects!</h1>
-      <p>Click the button below to go to the to-do list page:</p>
-      <Link href="/todo-list">Go to To-Do List</Link>
+      <p>Here's the things I have made so far hehe:</p>
+      <Link href="/TodoApp">Go to To-Do List</Link>
     </Homepage>
   );
 }
