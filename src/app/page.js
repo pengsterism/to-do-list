@@ -18,7 +18,8 @@ function Home() {
     <Homepage>
       <h1>Zahira's projects!</h1>
       <p>Here's the things I have made so far hehe:</p>
-      <Link href="/TodoApp">Go to To-Do List</Link>
+      <p><Link href="/TodoApp">Go to To-Do List</Link></p>
+      <p><Link href="/StoresCSS">Go to Mecca Stores CSS Activity</Link></p>
     </Homepage>
   );
 }
